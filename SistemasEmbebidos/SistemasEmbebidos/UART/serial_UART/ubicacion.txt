@@ -1,0 +1,5 @@
+Latitud: 99.99,,,,,
+Indicador Norte/Sur: *
+Longitud: 
+
+Indicador Este/Oeste: @

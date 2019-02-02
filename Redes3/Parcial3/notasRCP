@@ -1,0 +1,104 @@
+At +F5 para crear nueva terminal
+
+------ En terminal
+PDF que esta en la plataforma Config Persistencia en RCP
+
+fdisk -l _
+
+
+Después de hacer la configuración entrar a GNS3 para realizar el enrutamiento estatico
+Abre tres maquinas virutales por cada red
+---Configurar el router
+---Configurar la PC1 click derecho consola en GNS3
+----------------
+
+Topología dinamica con cliente y maquinas virtuales
+
+Paso1
+Agregar cliente:
+--- instrucciones para add interdaz fisica en moodle
+	Comando tunctl permite agregar la maquina
+SE asugna una IP  para virtualizar sudo ifconfig tap0 10.1.0.1/16 up para gns3
+Crear una regla para la tabla de enrutamiento de la lap, se configura el tráfico a gns3 para el enrutador
+sudo route -v para ver la tabla de enrutamiento
+
+
+Los paquetes que vayan a la red 10 que los mande por tap0
+sudo route add -net 10.1.0.0 netmask 255.255.0.0 dev tap0 gw 10.1.0.1
+
+
+En GNS3
+Nube
+clid configurar interfaz tap0
+
+iniciar los enrutadores y configurar ips
+
+
+---------- OSPT con archivos de configuracion
+
+sudo tunctl -u usuario
+sudo ifconfig tap0 10.0.1.2/16 up
+
+Definir regreso a la red externa
+sudo route add net 10.0.0.0/16 dev tap0 gw 10.1.0.1
+ping 10.0.0.2
+
+agregar regla 
+sudo route add -net 10.22.0.0/16 dev tap0 gw 10.1.0.1
+ping
+
+
+telnet copy 
+ftp par hacer el get
+
+
+---Exportar los archivos de configuracion de router
+ospf -- indica areas
+
+sudo tunctl -u alina
+sudo ifconfig tap0 192.168.202.5/24 up
+alina@alina-Inspiron-15-3552:~$ sudo route add -net 192.168.202.0 netmask 255.255.255.0 dev tap0 gw 192.168.202.15
+
+configurar router 2 eth0 con 192.168.202.15
+
+iniciar cliente ftp
+open 192.168.202.15
+rcp
+rcp
+
+archivos en raiz
+
+
+put nombre archivo ospf-config archivo_destino
+verficicar en enrutador
+reboot
+
+Enviamos los archivos de configuracion al router R2
+configuramos la eth1 y th2 y el servicio ftp
+ en el router1 
+service ftp y agregamos  ip
+
+en lap ftp
+open r1
+put ospf-R1
+
+desde r2 enviamos el archivo r1 con copy
+copy nombre_archivo ftp://rcp:rcp@ip/nombre_archivo
+
+reboot enr1
+
+
+--------Tunel UDP------
+
+
+
+
+llamadas al sistema para los servidores
+
+accseso remoto con snmp e impresiones
+
+
+
+
+
+

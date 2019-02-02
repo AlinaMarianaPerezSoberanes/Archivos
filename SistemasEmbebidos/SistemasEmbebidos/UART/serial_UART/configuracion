@@ -1,0 +1,39 @@
+-------- UART DATOS ----------
+-- Trama de configuracion de UART
+Velocidad de 9600 Baudio
+8 bits por dato
+sin paridad
+1 bit de paro
+
+--UART utiliza comuniacion asíncrona (full-duplex) el clk del UART y la rasp debe trabajar igual.
+--Estándard rs-232 para la comunicacion 
+
+
+micro TX/RX --- TTL ---> Circuto 232 ---232---> raspberry
+
+--un Baudio es el espacio que la señal 1 a nivel 0, se envían 10 Baudios para un dato de 7 bits
+
+--Calcular la tasa de transferencia=Velocidad en baudios/bits de trama
+--Se puede agrear un bit de paridad
+--9600 bytes--
+
+--En terminal--
+$ll /dev/tty -- es el nobre del (archivo) dispositivo ttyACM0
+
+
+-------Circuitos integrados por bus de comunicación
+--Comunicacion síncrona
+
+
+---- DS1307 -----
+frec: 100kh
+adress: 0x68
+No tiene terminales de dirección
+
+--- 24C(04) <- tamaño de la memoria
+frec: 400kh
+adress: 1010 A2,A1,A0,P0
+		101000P0
+		101001P0
+
+

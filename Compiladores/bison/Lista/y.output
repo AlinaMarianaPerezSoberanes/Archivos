@@ -1,0 +1,131 @@
+Terminals unused in grammar
+
+   '+'
+   '-'
+   '('
+   ')'
+   '*'
+   '/'
+   '^'
+
+
+Grammar
+
+    0 $accept: input $end
+
+    1 input: %empty
+    2      | input line
+
+    3 line: '\n'
+    4     | lista '\n'
+
+    5 lista: NUM
+    6      | lista ',' NUM
+
+
+Terminals, with rules where they appear
+
+$end (0) 0
+'\n' (10) 3 4
+'(' (40)
+')' (41)
+'*' (42)
+'+' (43)
+',' (44) 6
+'-' (45)
+'/' (47)
+'^' (94)
+error (256)
+NUM (258) 5 6
+
+
+Nonterminals, with rules where they appear
+
+$accept (13)
+    on left: 0
+input (14)
+    on left: 1 2, on right: 0 2
+line (15)
+    on left: 3 4, on right: 2
+lista (16)
+    on left: 5 6, on right: 4 6
+
+
+State 0
+
+    0 $accept: . input $end
+
+    $default  reduce using rule 1 (input)
+
+    input  go to state 1
+
+
+State 1
+
+    0 $accept: input . $end
+    2 input: input . line
+
+    $end  shift, and go to state 2
+    NUM   shift, and go to state 3
+    '\n'  shift, and go to state 4
+
+    line   go to state 5
+    lista  go to state 6
+
+
+State 2
+
+    0 $accept: input $end .
+
+    $default  accept
+
+
+State 3
+
+    5 lista: NUM .
+
+    $default  reduce using rule 5 (lista)
+
+
+State 4
+
+    3 line: '\n' .
+
+    $default  reduce using rule 3 (line)
+
+
+State 5
+
+    2 input: input line .
+
+    $default  reduce using rule 2 (input)
+
+
+State 6
+
+    4 line: lista . '\n'
+    6 lista: lista . ',' NUM
+
+    '\n'  shift, and go to state 7
+    ','   shift, and go to state 8
+
+
+State 7
+
+    4 line: lista '\n' .
+
+    $default  reduce using rule 4 (line)
+
+
+State 8
+
+    6 lista: lista ',' . NUM
+
+    NUM  shift, and go to state 9
+
+
+State 9
+
+    6 lista: lista ',' NUM .
+
+    $default  reduce using rule 6 (lista)

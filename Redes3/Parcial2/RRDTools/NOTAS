@@ -1,0 +1,11 @@
+Enviar alerta por correo al usuario
+
+Con un correo generado para enviar las notificaciones en gmail
+Abre un string para la grafica y se adjunta con msg.attach()
+mserver=smtplib. para abrir conexion con el servidor de gmail y start para ingresar
+Credenciales, quien lo envia y el pass
+
+checar scrip notify.py
+solo se envia si el valor es mayor a 23 puntos
+cambiar configuraciones de seguridad en gmail
+seguridad-- activad acceso para apps que no son seguras

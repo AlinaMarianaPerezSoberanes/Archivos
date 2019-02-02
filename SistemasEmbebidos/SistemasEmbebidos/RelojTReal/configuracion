@@ -1,0 +1,20 @@
+--Construir circuito para el reloj
+--El cristal utiliza capacitores 22pf
+	*Genera una señal de 32kHz
+	*3V
+	*Pines en la rasp --- 3 sda y 5 scl
+	*Resistencias de 4.7Ko
+	*Resistecia de salida 1Ko
+--Boot/config  en el ReadMe estan las configuraciones de todos los dispositivos
+	*direccion 68
+--Programa com wiringPi
+
+	Adress|Codigo
+	0x00   	0x39
+	0x01	0x27
+	0x02	0x14
+	0x03	0x06
+	0x04	0x18
+	0x05	0x05
+	0x06	0x18
+	0x07	0x10

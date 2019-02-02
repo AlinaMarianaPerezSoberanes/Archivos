@@ -1,0 +1,105 @@
+Ejercicio1 :
+
+Prueba de consultas de MIB:
+
+En linux, podemos consultar la MIB con el siguiente comando:
+	
+	snmpget -v1 -c ComunidadASR localhost 1.3.6.1.2.1.1.1.0
+Donde:
+	-v1 -v2c : es la version de snmp  
+	-c [comunidad] : Indicar el nombre de la comunidad existente en:/etc/snmp/snmpd.conf
+	localhost: para indicar la computadora o bien su IP
+	[IOD]: Ruta de la consulta de la MIB
+
+----------------------------------------------------------------------------------------- 
+
+En windows, se deben encender los servicios de snmp desde Servicios y en cmd
+ 
+	snmpget -v2c -c comunidad3 IPdeWin 1.3.6.1.2.1.1.1.0
+	-c [comunidad]: existe en propiedades del servicio snmp
+	[IPWin]: La IP en ipconfig
+
+-----------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+Ejercicio 2: 7-sep-18
+
+
+Instalar pysnmp
+	 pip install pysnmp
+
+Para crear el script del monitoreo del tráfico de red.
+
+--Documentación pysnmp library for python
+
+Comando get, en script para correrlo python v1-get1.py
+
+
+
+
+
+------------------------------------------------------------------------
+
+Ejercicio 3 14-sep-2018
+
+--getSNMP.py
+EL ejercicio anterior se pasa en una función def, para definir la funcion, se pasan como parámeetros la comunidad, el host y el oid
+
+Split nos permite adquirir solo un pedazo de la cadena, en este caso 2 para recibir el valor de la variable.
+
+Como el ejercico anterior, se va a trabajar con hora y octetos para obtenre la velocidad de transferencia y graficarla.
+
+----rrd1.py
+ret = rrdtool.create("trafico1.rrd", //nombre de la base
+                     "--start",'N', //obtiene la hora del sistema
+                     "--step",'60', //cada 60 segundos
+                     "DS:inoctets:COUNTER:600:U:U", //octetos de entrada
+                     "DS:outoctets:COUNTER:600:U:U", //octetos de salida de tipo contador, sin limites
+                     "RRA:AVERAGE:0.5:6:700", //archivos roundrobbin para hacer el primedio, 05 al menos la mitad de las muestras deben ser datos validos
+                     "RRA:AVERAGE:0.5:1:600"), cada 1 step 60 seg se va a tomar los datos y 600/700 el numero de filas
+
+--rrd2
+
+Totalimptraf y outputT reciben lo que regresa consulta snmp
+interfaces,iftable,ifinoctecs,interfaz3 inalambrica
+
+---N para la hora actual del sistema y guarda el dara sourse 1 y 2
+    valor = "N:" + str(total_input_traffic) + ':' + str(total_output_traffic)
+
+	N:12530:980 --ejemplo
+
+rrd3--
+archivo xml para ver la hora para copiar el numero
+
+while 1:
+    ret = rrdtool.graph( "trafico1.png",
+                     "--start",'1504542540', <<<---- nuermo a cambiar
+ #                    "--end","N",
+                     "--vertical-label=Bytes/s", --etiqueta
+                     "DEF:inoctets=net3.rrd:inoctets:AVERAGE",--def define una coleccion de datos
+                     "DEF:outoctets=net3.rrd:outoctets:AVERAGE",
+                     "AREA:inoctets#00FF00:In traffic", --se almacenan los datos
+                     "LINE1:outoctets#0000FF:Out traffic\r")-- imprimen la formacion de datos en area y en lineas para las graficas
+
+    time.sleep(30)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

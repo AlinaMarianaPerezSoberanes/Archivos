@@ -1,0 +1,14 @@
+
+
+para correrlo debe revisarse los permisos<<<>>>
+
+hay que desabilitarlo si ya esta habilitado:
+
+echo "17" > /sys/class/gpio/gpio17/unexport
+
+tarea >>>>> miercoles despues de clase <<<<<< en la sala
+
+1. prender y apagar cada led del 17 al 24
+2. el numero de boleta de alguien en el display
+	arreglo de digitos----
+

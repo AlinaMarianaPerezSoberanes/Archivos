@@ -1,0 +1,4 @@
+Ejercicio 1: 
+Implementar línea de base monitorizando la Ram o la carga del CPU de un agente.
+Sello 1 - Gráfca con tres umbrales (ready, set, go)
+Sello 2 - Detección y notificación de valor fuera de rango

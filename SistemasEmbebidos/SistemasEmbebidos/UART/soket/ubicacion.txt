@@ -1,0 +1,4 @@
+Latitud: 1926.46744
+Indicador Norte/Sur: N
+Longitud: 9906.95704,
+Indicador Este/Oeste: W

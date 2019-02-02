@@ -1,0 +1,41 @@
+---Servidor de correo POSTFIX----
+Para enviar un correo : telnet __IP__ puerto 25 postfix| 110 dovecot
+Una vez conectado se escribe: mail from: from
+despues de especifica: rcpt to: dequien
+y se especifica: rcpt to: paraquien
+se escribe el cuerpo del correo : data  .
+
+-Tiempo de respuesta SMTP
+-Tiempo de respuesta IMAP
+-Suma de ambos
+
+***Se envia un correo de prueba SMTP al servidor de correo.
+*** El sevidor SMTP entrega el correo al servicio POP3/IMAP
+***Compueba los correos electrónicos del servidor POP3/IMAP cada segundo hasta que llega el correo electronico de prueba
+
+----------------Instalar servidor DNS para correo y para HTTP--------
+***Tiempo de respuesta (carga) una solicitud HTTP
+***Bytes recibidos
+***Ancho de banda de descarga (velocidad)
+
+
+
+------- Servidor de archivos FTP
+-Tiempo de respuesta de servidor
+-Respuesta de servidor (compartir archivos)
+***Superviza los cambios en los ficheros
+
+-------Servidor de impresoras
+-Total de paginas impresas
+-Nivel de cartuchos y tonners
+-Estado de impresora
+
+
+
+------- Supervision de acceso remoto
+-Numero de conexiones
+-Trafico enviado y recibido
+-Tiempo de actividad de conexion
+
+
+--------

@@ -1,0 +1,89 @@
+------- Habilitar interfaz tap -------
+
+	sudo tunctl -u alina
+	sudo ifconfig tap0 IP/Mask up
+	sudo route add -net IP/Mask dev tap0 gw IP
+	sudo route -v
+
+-------- En router --------
+	enable
+	conf
+	interface ethernet ethX
+	ip addressid IP/mask
+	no sh
+	exit
+	copy run start
+	show ip route
+	shor interface
+
+*******Enrutamiento estático*******
+
+	ip route 192.168.1.0/24 ipROUTER
+	show ip route
+ # Se ponen ips de la red y el router por donde sale
+
+*******Enrutamiento RIP*******
+
+	interfaces
+	router rip
+	network IP/mask 
+	redistribute connected
+
+ #Se ponen ips conf del router en network
+
+++++++++++++ENTRE CAMBIOS DE PROTOCOLOS+++++++++++
+	En un router se debe configurar los protocolos utilizando:
+	router rip / redistribute ospf
+	router ospf / redistribute rip
+	de tal forma que en el startup-config quede:
+
+router rip
+	network IPCompartida/mask
+	redistribute ospf
+	redistribute connected
+router ospf
+	router-ip iparea
+	network -IP- area -N-
+	redistribute rip
+	redistribute connected
+
+*******Enrutamiento OSPF*******
+
+	router ospf 
+	network 10.1.0.0/16 area 0
+	redistribute connected 
+ #Se ponen ips conf del router en network
+ #router ospf
+ #router-id 192.168.232.9/IPAREA
+ #network
+
+-------- habilitar servicios -----------
+
+	service ftp
+	service tftp
+	reboot <- ver cambios
+
+--------- PC virtual -----------------
+
+	ip pcIP/netmask	gatewayIP
+	ping IP
+
+
+
+-------------------------------- COMANDOS DESDE TERMINAL --------------------------------
+
+---En terminal pasar los archivos
+	ftp IP
+	rcp
+	rcp
+	put archivo destino
+	get archivo archivolocal
+verficiar en router reboot
+
+--- En routers
+Se configuran las interfaces eth conectadas al router principal
+Se envian todos los archivos de configuracion al router principal desde terminal
+
+---Copiar archivos de configuración
+
+copy nombre_archivo ftp://rcp:rcp@ip/nombre_archivo
